@@ -1,9 +1,18 @@
 ## How to Run the Code
 
-1. Set the path of the export directory of the eye-tracking folder into the `default_input` variable.
+1. Open the `runner_pl_full_processing.py` file, and set the path of the export directory of the eye-tracking folder into the `default_input` variable.
 2. Specify the `phase_group` variable with one of the following values: `'A'`, `'B'`, or `'2'`.
 3. Update the `tableau_order` variable only if the order of paintings has changed. Refer to the provided Word document for the correct order.
 4. Run the code.
+
+Create a new Python virtual environment and install the required libraries from the `requirements.txt` file. Use the following commands:
+```bash
+python -m venv script_env
+source script_env/bin/activate  # On Windows, use `env\Scripts\activate`
+pip install -r requirements.txt
+```
+This ensures all dependencies are installed in an isolated environment.
+
 
 ### Functionality
 The code performs the following tasks:
