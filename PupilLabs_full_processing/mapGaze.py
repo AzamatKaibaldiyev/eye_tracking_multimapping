@@ -37,7 +37,6 @@ from os.path import join
 import logging
 import shutil
 import time
-import argparse
 import time
 
 import numpy as np
@@ -736,7 +735,7 @@ if __name__ == '__main__':
         
         if 'Survage' in bestReferenceImage:
             num_matches_thresh = 40
-            Ref2world_on = True
+            Ref2world_on = False
         else:
             num_matches_thresh = 10
             Ref2world_on = False
