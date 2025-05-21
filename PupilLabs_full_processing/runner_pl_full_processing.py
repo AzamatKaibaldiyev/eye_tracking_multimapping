@@ -94,11 +94,7 @@ def get_image_path(folder_path, phase, index):
 if __name__ == '__main__':
 
     # SET PATH AND SELECT PHASE    
-    # input_default = '/home/kaibald231/zProcessing_ABC/phase1/023/20240907152724971/exports'    #A
-    # input_default = '/home/kaibald231/zProcessing_ABC/phase1/042/20241101143214428/exports'    #A
-    # input_default = '/home/kaibald231/zProcessing_ABC/phase1/018/20241001093226680/exports'   #B
-    # input_default = '/home/kaibald231/ABC/26Apr/BIN14:15/158/20250426151952420/exports'   #2
-    #input_default = '/home/kaibald231/ABC/26Apr/BIN13:15/037/20250426141354347/exports'   #2
+
     input_default = '/home/kaibald231/zProcessing_ABC/phase1/030/20241001135412533/exports'   #B
     phase_group = 'B'  #A, B, 2
     tableau_order = False # False if tablo order is not held in the video, #check word document for correct order
