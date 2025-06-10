@@ -11,11 +11,12 @@ This ensures all dependencies are installed in an isolated environment.
 
 ## How to Run the Code
 
-1. Open the `runner_pl_full_processing.py` file, and set the path of the export directory of the eye-tracking folder into the `default_input` variable.
-2. Specify the `phase_group` variable with one of the following values: `'A'`, `'B'`, or `'2'`.
+1. Open the `runner_pl_full_processing.py` file
+2. In Check_steps_notebook.ipynb (Extracting paths and group numbers) put folder_path and run it to get arguments automatically, copy past them into input_folder_group variable in  `runner_pl_full_processing.py` file 
 3. Update the `tableau_order` variable only if the order of paintings has changed. Refer to the provided Word document for the correct order.
 4. Run the code.
-
+5. Check for missing data after processing by running Check_steps_notebook.ipynb (Checking if there are no missing files after processing)
+6. If found, copy paste the output from (If there are missing data code part) into run_missing_data.py and run it
 
 
 ### Functionality
