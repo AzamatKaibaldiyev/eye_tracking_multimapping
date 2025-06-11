@@ -16,8 +16,6 @@ This ensures all dependencies are installed in an isolated environment.
 3. Update the `tableau_order` variable only if the order of paintings has changed. Refer to the provided Word document for the correct order.
 4. Run the code.
 5. Check for missing data after processing by running Check_steps_notebook.ipynb (Checking if there are no missing files after processing)
-6. If found, copy paste the output from (If there are missing data code part) into run_missing_data.py and run it
-
 
 ### Functionality
 The code performs the following tasks:

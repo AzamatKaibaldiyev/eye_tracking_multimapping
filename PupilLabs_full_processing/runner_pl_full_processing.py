@@ -6,6 +6,7 @@ import argparse
 import time
 import sys
 from pathlib import Path
+import shutil
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -95,17 +96,70 @@ if __name__ == '__main__':
 
     # SET PATH AND SELECT PHASE    
     # Add more combinations as needed:
-    # input_folder_group = [['/home/kaibald231/ABC/26Apr/BIN14:15/129/20250426151921955/exports',
-    # '2',
-    # True]]
 
-    input_folder_group = [['/home/kaibald231/zProcessing_ABC/phase1/018/20241001093226680/exports',
-    'B',
+    input_folder_group = [['/home/kaibald231/ABC/26Apr/BIN9:15/092/20250426101651949/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/26Apr/BIN9:15/093/20250426101622479/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/26Apr/BIN10:15/063/20250426112258634/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/26Apr/BIN10:15/031/20250426112215382/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/26Apr/BIN13:15/037/20250426141354347/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/26Apr/BIN13:15/014/20250426142058230/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/26Apr/BIN14:15/129/20250426151921955/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/26Apr/BIN14:15/158/20250426151952420/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/28Apr/BIN10:15/025/20250428110942448/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/28Apr/BIN10:15/183/20250428111028187/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/28jan/BIN9/097/20250128101958167/exports', '2', True],
+    ['/home/kaibald231/ABC/28jan/BIN9/008/20250128102045645/exports', '2', True],
+    ['/home/kaibald231/ABC/28jan/BIN10/062/20250128114135452/exports', '2', True],
+    ['/home/kaibald231/ABC/28jan/BIN10/077/20250128114200287/exports', '2', True],
+    ['/home/kaibald231/ABC/28jan/BIN11/090/20250128141847614/exports', '2', True],
+    ['/home/kaibald231/ABC/28jan/BIN11/020/20250128141756057/exports', '2', True],
+    ['/home/kaibald231/ABC/27jan/BIN9:15/052/20250127100823065/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/27jan/BIN9:15/110/20250127100924976/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/27jan/BIN10:15/002/20250127112735085/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/27jan/BIN10:15/078/20250127112749303/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/27jan/BIN13:15/043/20250127140221800/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/27jan/BIN13:15/004/20250127140247236/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/27jan/BIN14:15/049/20250127150223517/exports',
+    '2',
+    True],
+    ['/home/kaibald231/ABC/27jan/BIN14:15/134/20250127150153661/exports',
+    '2',
     True]]
 
     
     tableau_order = True # False if tablo order is not held in the video, #check word document for correct order
-
 
 
 
@@ -117,7 +171,7 @@ if __name__ == '__main__':
         
         # Select scripts to run
         run_sync_audio_export_timestamps = False
-        run_gaze_map = True
+        run_gaze_map = False
         script_folder_path = os.path.dirname(os.path.abspath(__file__))
         references_folder_path = os.path.join(os.path.dirname(script_folder_path), 'reference_images')
         reference_default = os.path.join(references_folder_path, get_phase(phase_group))
@@ -269,6 +323,12 @@ if __name__ == '__main__':
                 # Set output directory
                 output_directory = os.path.join(folder_path, output_folder_name, folder_name)
                 os.makedirs(output_directory, exist_ok=True)
+
+                # Copy export_info.csv and world_timestamps.csv to output directory
+                csv_export_file = [os.path.join(subfolder_path, file) for file in all_files if file.endswith('export_info.csv')][0]
+                csv_world_timestamp_file = [os.path.join(subfolder_path, file) for file in all_files if file.endswith('world_timestamps.csv')][0]
+                shutil.copy(csv_export_file, output_directory)
+                shutil.copy(csv_world_timestamp_file, output_directory)
 
                 #Packing all the arguments
                 script_args_mapgaze.append((folder_name, (folder_name, script_path, path_gazeData, path_worldCameraVid, path_referenceImage,output_directory, ordered_tablo_path)))
